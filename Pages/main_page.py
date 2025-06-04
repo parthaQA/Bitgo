@@ -36,24 +36,22 @@ class Main_Page:
         elements = self.wait.until(EC.presence_of_all_elements_located(self.two_inputs))
         for element in elements:
             el = element.find_elements(By.CLASS_NAME, "vout")
-
-            for ele in el:
-                num = ele.find_elements(By.TAG_NAME, "a")
-                if len(num)<=2:
+            if len(el)<=2:
+                for ele in el:
                     list1.append(ele.text)
 
         print(list1)
+        print(len(list1))
 
         list2 = []
         elements2 = self.wait.until(EC.presence_of_all_elements_located(self.one_input))
         for element1 in elements2:
             el1 = element1.find_elements(By.CLASS_NAME, "vin")
-
-            for ele in el1:
-                num = ele.find_elements(By.CSS_SELECTOR, ".txn a")
-                if len(num) <= 1:
+            if len(el1) <= 1:
+                for ele in el1:
                     list2.append(ele.text)
 
         print(list2)
+        print(len(list2))
 
 
